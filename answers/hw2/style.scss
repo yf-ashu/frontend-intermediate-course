@@ -1,0 +1,101 @@
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+
+@mixin size($w, $h) {
+    height: $h;
+    width: $w;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap; //row是預設值
+}
+
+@mixin flexLeft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap; //row是預設值
+}
+
+@mixin background {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    @include size(100%, 100%);
+}
+
+.bg {
+    @include size(100%, 100%);
+    background: url('https://lolstatic-a.akamaihd.net/lolkit/1.1.6/resources/images/bg-default.jpg');
+    position: fixed;
+    @include background();
+    &::before {
+        content: "";
+        @include size(100%,
+        100%);
+        background-color: rgba(0, 0, 0, .5);
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+}
+
+.wrapper {
+    @include size(100%,
+    100%);
+    @include flexCenter();
+    padding: 32px;
+}
+
+.block {
+    @include size(300px,
+    300px);
+    background-color: #fff;
+    border: #000 solid 1px;
+    margin: 8px 16px;
+    .display {
+        @include size(100%,
+        70%);
+        background: url("https://static-cdn.jtvnw.net/ttv-static/404_preview-320x180.jpg");
+        @include background();
+    }
+}
+
+.person {
+    color: #bebebe;
+    @include flexLeft();
+    @include size(100%,
+    30%);
+    overflow: hidden;
+    padding: 16px;
+    background-color: #000;
+    .image {
+        @include size(60px,
+        60px);
+        background: url("https://static-cdn.jtvnw.net/jtv-static/404_preview-300x300.png");
+        @include background();
+        border-radius: 50%;
+    }
+    .title {
+        padding: 16px;
+        p {
+            margin: 8px;
+        }
+    }
+}
