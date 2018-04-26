@@ -8,6 +8,10 @@ p {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 body,
 html {
   margin: 0;
@@ -47,7 +51,7 @@ html {
 }
 
 .block {
-  height: 300px;
+  height: auto;
   width: 300px;
   margin: 8px 16px;
   cursor: pointer;
@@ -60,7 +64,7 @@ html {
 }
 
 .block .display img {
-  height: 70%;
+  height: auto;
   width: 100%;
   background-position: center;
   background-size: cover;
@@ -90,7 +94,12 @@ html {
 }
 
 .person .title {
-  padding: 16px;
+  height: auto;
+  width: 75%;
+  padding-left: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .person .title p {

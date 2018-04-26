@@ -37,8 +37,6 @@ var update = (jsondata => {
                       </div>
                       </a>
                      </div>`;
-
-
         console.log(datas[index]);
     });
     const dataList = document.querySelector('.wrapper ');
