@@ -95,5 +95,8 @@ html {
 
 .person .title p {
   margin: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */

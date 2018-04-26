@@ -12,6 +12,14 @@ p {
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+}
+@mixin font {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
 
 @mixin flexCenter {
     display: flex;
@@ -65,17 +73,17 @@ html {
 
 .block {
     @include size(300px,
-    300px);
+    auto);
     margin: 8px 16px;
     cursor: pointer;
-    transition:filter 0.7s, box-shadow 0.3s;
+    transition: filter 0.7s, box-shadow 0.3s;
     &:hover {
         filter: brightness(150%);
-        box-shadow:0px 0px 30px 10px rgba(0, 0, 0, .5);
+        box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, .5);
     }
-    .display img{
+    .display img {
         @include size(100%,
-        70%);
+        auto);
         @include background();
     }
 }
@@ -94,10 +102,14 @@ html {
         @include background();
         border-radius: 50%;
     }
-    .title {
-        padding: 16px;
+    .title { @include size(75%,
+        auto);
+        padding-left: 16px;
+        @include font();
+
         p {
             margin: 8px;
+            @include font();
         }
     }
 }
