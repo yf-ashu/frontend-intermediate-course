@@ -1,0 +1,119 @@
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+
+@mixin size($w, $h) {
+    height: $h;
+    width: $w;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+@mixin font {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap; //row是預設值
+}
+
+@mixin flexLeft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap; //row是預設值
+}
+
+@mixin background {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    @include size(100%, 100%);
+}
+
+.bg {
+    @include size(100%, 100%);
+    background: url('https://lolstatic-a.akamaihd.net/lolkit/1.1.6/resources/images/bg-default.jpg');
+    position: fixed;
+    @include background();
+    &::before {
+        content: "";
+        @include size(100%,
+        100%);
+        background-color: rgba(0, 0, 0, .5);
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+}
+
+.wrapper {
+    @include size(100%,
+    100%);
+    @include flexCenter();
+    padding: 32px;
+}
+
+.block {
+    @include size(300px,
+    auto);
+    margin: 8px 16px;
+    cursor: pointer;
+    transition: filter 0.7s, box-shadow 0.3s;
+    &:hover {
+        filter: brightness(150%);
+        box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, .5);
+    }
+    .display {
+        transition: opacity 0.5s;
+    }
+    .display img {
+        transition: opacity 0.5s;
+        @include size(100%,
+        auto);
+        @include background();
+    }
+}
+
+.person {
+    color: #bebebe;
+    @include flexLeft();
+    @include size(100%,
+    30%);
+    overflow: hidden;
+    padding: 16px;
+    background-color: #000;
+    .image img {
+        @include size(60px,
+        60px);
+        @include background();
+        border-radius: 50%;
+    }
+    .title { @include size(75%,
+        auto);
+        padding-left: 16px;
+        @include font();
+
+        p {
+            margin: 8px;
+            @include font();
+        }
+    }
+}
