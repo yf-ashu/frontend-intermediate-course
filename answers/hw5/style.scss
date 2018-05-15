@@ -12,9 +12,11 @@ p {
     margin: 0;
     padding: 0;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 @mixin font {
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -82,12 +84,24 @@ html {
         box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, .5);
     }
     .display {
-        transition: opacity 0.5s;
+        position: relative;
+        @include size(300px,
+        180px);
     }
     .display img {
-        transition: opacity 0.5s;
         @include size(100%,
-        auto);
+        100%);
+        opacity: 0;
+        @include background();
+        transition: opacity 1s;
+    }
+    .placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include size(100%,
+        100%);
+        background: url(https://static-cdn.jtvnw.net/ttv-static/404_preview-320x180.jpg);
         @include background();
     }
 }
@@ -106,11 +120,11 @@ html {
         @include background();
         border-radius: 50%;
     }
-    .title { @include size(75%,
+    .title {
+        @include size(75%,
         auto);
         padding-left: 16px;
         @include font();
-
         p {
             margin: 8px;
             @include font();

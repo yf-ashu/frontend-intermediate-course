@@ -64,13 +64,28 @@ html {
 }
 
 .block .display {
-  transition: opacity 0.5s;
+  position: relative;
+  height: 180px;
+  width: 300px;
 }
 
 .block .display img {
-  transition: opacity 0.5s;
-  height: auto;
+  height: 100%;
   width: 100%;
+  opacity: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: opacity 1s;
+}
+
+.block .placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url(https://static-cdn.jtvnw.net/ttv-static/404_preview-320x180.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
