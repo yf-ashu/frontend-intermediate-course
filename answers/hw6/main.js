@@ -40,6 +40,8 @@ let connect = function () {
 //     };
 //     image.src = data.preview.large;
 //   })
+
+
 // }
 let update = (jsondata => {
   isLoad = true;
@@ -90,6 +92,7 @@ let pageScroll = function () {
     url = `https://api.twitch.tv/kraken/streams/?limit=${limit}&language=zh-tw&offset=${add}`;
     connect();
   }
+
 }
 window.onload = function () {
   connect();
